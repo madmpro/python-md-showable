@@ -1,0 +1,5 @@
+site_name: mdx_showable
+repo_url: https://github.com/andrewjrobinson/python-md-showable
+site_author: Andrew Robinson
+markdown_extensions:
+  ['mdx_showable:ShowableExtension']

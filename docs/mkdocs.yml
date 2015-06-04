@@ -1,3 +1,0 @@
-site_name: mdx_showable
-markdown_extensions:
-  ['mdx_showable:ShowableExtension']
