@@ -39,7 +39,7 @@ setup(
   author = 'Andrew Robinson',
   author_email = 'andrewjrobinson+pypi@gmail.com',
   url = 'https://github.com/andrewjrobinson/python-md-showable',
-  download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/0.1.0',
+  download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/v0.1.0',
   keywords = ['markdown', 'extension', 'showable', 'hideable', 'sections'],
   classifiers = [],
 )
