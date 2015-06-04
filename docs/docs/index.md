@@ -1,5 +1,3 @@
-<span style="color: red; font-weight: bold;">NOTE: This content is for LSCC tutorial/workshop authors.  It is not useful to tutorial/workshop attendees</span>
-
 # Showable extension demo
 
 A simple component that allows you to have hidden Markdown section (called the body) that is revealed when the user
@@ -150,67 +148,17 @@ A showable with custom CSS class applied
 **html**:
 
 ```html
-<div class="showable-container showable-hidden example-container" id="showable3">
+<div class="showable-container showable-hidden example" id="showable3">
 	<div class="showable-inner">
-		<div class="showable-header example-header" id="showabletitle3">
+		<div class="showable-header example" id="showabletitle3">
 			<a href="" id="showablelink3">Custom CSS</a>
 		</div>
-		<div class="showable-body example-body" id="showablebody3">
+		<div class="showable-body example" id="showablebody3">
 			<p>A showable with custom CSS class applied</p>
 		</div>
 	</div>
 </div>
 ```
-
-
-
-
-
-
-
-### Builtin CSS classes ###
-
-There are a number of builtin showable CSS styles
-
-**syntax**:
-
-```md
-\showable{Question}{question}
-\showable{Hint}{hint}
-\showable{Answer}{answer}
-\showable{Indent}{indent}
-```
-
-**example**:
-
-\showable{What is the answer to life?}{question}
-
-Some more details of the task at hand; "not dying"
-\endshowable
-
-
-\showable{Hint}{hint}
-
-What is the answer to everything?
-\endshowable
-
-
-Show \showable{Answer}{answer}
-
-**42**
-
-You really should use the Showable extension for LSCC Tutorials 
-\endshowable
-
-
-\showable{Note}{indent}
-
-If you want the showable text to line up with the other builtin classes use *indent* class
-\endshowable
-
-
-\class{Is the Showable Extension awesome?}{question}
-
 
 
 
@@ -366,7 +314,7 @@ A \showable{Showable}{indent} with no content
 Typically used when developing content, you can instruct the showable module to invert the show/hide status of all showables 
 in a page by adding *?exp* to the url in your browser.
 
-**NOTE**: this presently *toggles all* showable so *Inverted* showables will be shown.  Future version will changed so that this option
+**NOTE**: this presently *toggles all* showable so *Inverted* showables will be hidden.  Future version will changed so that this option
 will *open all* rather than *toggle all*
 
 
