@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Andrew Robinson">
+        
+        <link rel="shortcut icon" href="./img/favicon.ico">
+
+	<title>mdx_showable</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+        <link href="./media/mdx_showable.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">mdx_showable</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/andrewjrobinson/python-md-showable">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#showable-extension-demo">Showable extension demo</a></li>
+        
+            <li><a href="#minimal">Minimal</a></li>
+        
+            <li><a href="#partial-title-link">Partial title link</a></li>
+        
+            <li><a href="#markdown">Markdown</a></li>
+        
+            <li><a href="#css-classes">CSS Classes</a></li>
+        
+            <li><a href="#nested-showables">Nested showables</a></li>
+        
+            <li><a href="#alternating-title-link">Alternating title link</a></li>
+        
+            <li><a href="#inverted">Inverted</a></li>
+        
+            <li><a href="#no-content">No content</a></li>
+        
+            <li><a href="#expand-all">Expand all</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="showable-extension-demo">Showable extension demo</h1>
+<p>A simple component that allows you to have hidden Markdown section (called the body) that is revealed when the user
+clicks on the title link</p>
+<h2 id="minimal">Minimal</h2>
+<p>In it's simplest form <em>\showable</em> applies very minimal styling to the HTML (though lots of classes for
+your convenience)</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">\showable{Title text}
+
+This is the text that will show
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container showable-hidden" id="showable0">
+<div class="showable-inner">
+<div class="showable-header" id="showabletitle0"><a href="" id="showablelink0">Title text</a></div>
+<div class="showable-body" id="showablebody0">
+<p>This is the text that will show</p>
+</div>
+</div>
+</div>
+<script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
+<script>
+    $(document).ready(function(){
+        $("#showablelink0").click(function(){
+            $("#showable0").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+<p><strong>html</strong>:</p>
+<p>When the showable is shown the <em>showable-hidden</em> class is removed from the top-level div tag</p>
+<pre><code class="html">&lt;div class=&quot;showable-container showable-hidden&quot; id=&quot;showable0&quot;&gt;
+    &lt;div class=&quot;showable-inner&quot;&gt;
+        &lt;div class=&quot;showable-header&quot; id=&quot;showabletitle0&quot;&gt;
+            &lt;a href=&quot;&quot; id=&quot;showablelink0&quot;&gt;Title text&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;showable-body&quot; id=&quot;showablebody0&quot;&gt;
+            &lt;p&gt;This is the text that will show&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+$(document).ready(function(){
+    $(&quot;#showablelink0&quot;).click(function(){
+        $(&quot;#showable0&quot;).toggleClass(&quot;showable-hidden&quot;);
+        return false;
+    });
+});
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="partial-title-link">Partial title link</h2>
+<p>If you put text around the <em>\showable</em> tag then it will be included with the title link</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">Click \showable{here} to reveal a secret
+
+If you put text around the \showable tag then it will be included with the title link
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container showable-hidden" id="showable1">
+<div class="showable-inner">
+<div class="showable-header" id="showabletitle1">Click <a href="" id="showablelink1">here</a> to reveal a secret</div>
+<div class="showable-body" id="showablebody1">
+<p>If you put text around the \showable tag then it will be included with the title link</p>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink1").click(function(){
+            $("#showable1").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+<p><strong>html</strong>:</p>
+<pre><code class="html">...
+        &lt;div class=&quot;showable-header&quot; id=&quot;showabletitle1&quot;&gt;
+            Click 
+            &lt;a href=&quot;&quot; id=&quot;showablelink1&quot;&gt;here&lt;/a&gt;
+            to reveal a secret
+        &lt;/div&gt;
+...
+</code></pre>
+
+<h2 id="markdown">Markdown</h2>
+<p>You can include markdown in the body of the showable</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">\showable{Show me the magic}
+
+* **WOW**: its bold text in a list
+* that includes more than one item 
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container showable-hidden" id="showable2">
+<div class="showable-inner">
+<div class="showable-header" id="showabletitle2"><a href="" id="showablelink2">Show me the magic</a></div>
+<div class="showable-body" id="showablebody2">
+<ul>
+<li><strong>WOW</strong>: its bold text in a list</li>
+<li>that includes more than one item </li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink2").click(function(){
+            $("#showable2").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+<h2 id="css-classes">CSS Classes</h2>
+<p>You can include an extra section on the <em>\showable {TITLE}{CLASSES}</em> tag to specify a CSS style to apply to the showable sections.<br />
+You can specify more that one class by separating each by a space.  Each class is applied to the 3 sections: <em>container</em>, <em>header</em> and 
+<em>body</em>.</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">\showable{Custom CSS}{example}
+
+A showable with custom CSS class applied
+
+\endshowable
+</code></pre>
+
+<p><strong>html</strong>:</p>
+<pre><code class="html">&lt;div class=&quot;showable-container showable-hidden example&quot; id=&quot;showable3&quot;&gt;
+    &lt;div class=&quot;showable-inner&quot;&gt;
+        &lt;div class=&quot;showable-header example&quot; id=&quot;showabletitle3&quot;&gt;
+            &lt;a href=&quot;&quot; id=&quot;showablelink3&quot;&gt;Custom CSS&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;showable-body example&quot; id=&quot;showablebody3&quot;&gt;
+            &lt;p&gt;A showable with custom CSS class applied&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2 id="nested-showables">Nested showables</h2>
+<p>You can put showables inside each other.</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">\showable{Hint}{hint} there is more to me inside
+
+You can stack showables inside of me
+
+Click here to see \showable{more} hints
+
+**And what have we here**
+
+\endshowable
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container hint showable-hidden" id="showable3">
+<div class="showable-inner">
+<div class="showable-header hint" id="showabletitle3"><a href="" id="showablelink3">Hint</a> there is more to me inside</div>
+<div class="showable-body hint" id="showablebody3">
+<p>You can stack showables inside of me</p>
+<div class="showable-container showable-hidden" id="showable4">
+<div class="showable-inner">
+<div class="showable-header" id="showabletitle4">Click here to see <a href="" id="showablelink4">more</a> hints</div>
+<div class="showable-body" id="showablebody4">
+<p><strong>And what have we here</strong></p>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink4").click(function(){
+            $("#showable4").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink3").click(function(){
+            $("#showable3").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+<h2 id="alternating-title-link">Alternating title link</h2>
+<p>The title link text can be swapped depending on what state it is in.  To specify the alternate (when shown) title link
+text add it to the end of the title and separate with a pipe-symbol (|).</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">\showable{More|Less}{indent}
+
+Are you sure you want to know more?
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container indent showable-hidden" id="showable5">
+<div class="showable-inner">
+<div class="showable-header indent" id="showabletitle5"><a href="" id="showablelink5">More</a></div>
+<div class="showable-body indent" id="showablebody5">
+<p>Are you sure you want to know more?</p>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink5").click(function(){
+            $("#showable5").toggleClass("showable-hidden");
+            if ($("#showable5").hasClass("showable-hidden")) {
+                $("#showablelink5").text("More");
+            } else {
+                $("#showablelink5").text("Less");
+            }
+            return false;
+        });
+    });
+    </script>
+<h2 id="inverted">Inverted</h2>
+<p>If you want the showable to be initally visable you can by adding a plus (+) after the <em>\showable</em></p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">Click to \showable+{Hide}{indent}
+
+This content will be initially open and can be closed by click on title
+
+\endshowable
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container indent" id="showable6">
+<div class="showable-inner">
+<div class="showable-header indent" id="showabletitle6">Click to <a href="" id="showablelink6">Hide</a></div>
+<div class="showable-body indent" id="showablebody6">
+<p>This content will be initially open and can be closed by click on title</p>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#showablelink6").click(function(){
+            $("#showable6").toggleClass("showable-hidden");
+            return false;
+        });
+    });
+    </script>
+<h2 id="no-content">No content</h2>
+<p>If the showable has no content then the title link is replaced with a span and no body section is added.
+The span tag has the added class <em>link-like</em>.</p>
+<p><strong>syntax</strong>:</p>
+<pre><code class="md">A \showable{Showable}{indent} with no content
+
+\endshowable
+
+ALT:
+
+A \showable{Showable}{indent} with no content\endshowable
+</code></pre>
+
+<p><strong>html</strong>:</p>
+<pre><code class="html">&lt;div class=&quot;showable-container indent showable-hidden&quot; id=&quot;showable11&quot;&gt;
+    &lt;div class=&quot;showable-inner&quot;&gt;
+        &lt;div class=&quot;showable-header indent&quot; id=&quot;showabletitle11&quot;&gt;
+            A 
+            &lt;span class=&quot;link-like&quot; id=&quot;showablelink11&quot;&gt;Showable&lt;/span&gt; 
+            with no content
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>example</strong>:</p>
+<div class="showable-container indent showable-hidden" id="showable7">
+<div class="showable-inner">
+<div class="showable-header indent" id="showabletitle7">A <span class="link-like" id="showablelink7">Showable</span> with no content</div>
+</div>
+</div>
+<h2 id="expand-all">Expand all</h2>
+<p>Typically used when developing content, you can instruct the showable module to invert the show/hide status of all showables 
+in a page by adding <em>?exp</em> to the url in your browser.</p>
+<p><strong>NOTE</strong>: this presently <em>toggles all</em> showable so <em>Inverted</em> showables will be hidden.  Future version will changed so that this option
+will <em>open all</em> rather than <em>toggle all</em></p>
+<p><strong>example</strong>:</p>
+<p><a href="?exp">Show</a> all showables in this page.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script>
+        <script src="./media/delayed-jquery.js"></script>
+        <script src="./media/mdx_showable.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 0.13.3
+Build Date UTC : 2015-06-04 01:54:03.534827
+-->
