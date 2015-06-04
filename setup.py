@@ -41,5 +41,14 @@ setup(
   url = 'https://github.com/andrewjrobinson/python-md-showable',
   download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/v0.1.0',
   keywords = ['markdown', 'extension', 'showable', 'hideable', 'sections'],
-  classifiers = [],
+  classifiers = [
+                 "Development Status :: 4 - Beta",
+                 "Programming Language :: Python :: 3",
+                 "Programming Language :: Python :: 2.7",
+                 "License :: OSI Approved :: BSD License",
+                 "Operating System :: OS Independent",
+                 "Topic :: Text Processing :: Markup",
+                 "Topic :: Text Processing :: Markup :: HTML",
+                 "Topic :: Software Development :: Documentation",
+                 ],
 )
