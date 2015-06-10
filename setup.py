@@ -34,12 +34,13 @@ from distutils.core import setup
 setup(
   name = 'mdx_showable',
   packages = ['mdx_showable'],
-  version = '0.1.1',
+  package_data={'mdx_showable': ['media/*']},
+  version = '0.1.2',
   description = 'Python Markdown plugin to show and hide sections by user click',
   author = 'Andrew Robinson',
   author_email = 'andrewjrobinson+pypi@gmail.com',
   url = 'https://github.com/andrewjrobinson/python-md-showable',
-  download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/v0.1.1',
+  download_url = 'https://github.com/andrewjrobinson/python-md-showable/tarball/v0.1.2',
   install_requires=[
     'markdown',
     ],

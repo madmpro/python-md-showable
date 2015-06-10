@@ -59,6 +59,9 @@ from markdown.blockprocessors import BlockProcessor, ListIndentProcessor
 from markdown.util import etree
 import re
 
+## Set the version Number
+__version__ = '0.1.2'
+
 
 class ShowableProcessor(BlockProcessor):
     """Create sections of output that can be shown"""
@@ -145,6 +148,13 @@ class ShowableProcessor(BlockProcessor):
             titlespan.text = title
             titlespan.tail = titleSuffix
             
+                
+            # hack in (once) the delayed java-script code as its not possible to add it into the template without editing it.
+            # @see http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
+            if self._first:
+                scriptjq = etree.SubElement(parent, 'script')
+                scriptjq.text = '''(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)'''
+                self._first = False
             
             # create showable body
             if len(myblocks) > 0:
@@ -154,13 +164,6 @@ class ShowableProcessor(BlockProcessor):
                 
                 # add children
                 self.parser.parseBlocks(divb, myblocks)
-                
-                # hack in (once) the delayed java-script code as its not possible to add it into the template without editing it.
-                # @see http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
-                if self._first:
-                    scriptjq = etree.SubElement(parent, 'script')
-                    scriptjq.text = '''(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)'''
-                    self._first = False
                 
                 # add the toggle handler
                 labelswap=""
@@ -175,9 +178,9 @@ class ShowableProcessor(BlockProcessor):
                 script = etree.SubElement(parent, 'script')
                 script.text = '''
     $(document).ready(function(){{
-        $("#showablelink{ID}").click(function(){{
+        $("#showablelink{ID}").click(function(e){{
+            e.preventDefault();
             $("#showable{ID}").toggleClass("showable-hidden");{labelswap}
-            return false;
         }});
     }});
     '''.format(ID=myid, labelswap=labelswap)
