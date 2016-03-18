@@ -145,7 +145,8 @@ class ShowableProcessor(BlockProcessor):
                 titlespan = etree.SubElement(divt, 'span')
                 titlespan.set("class", "link-like")
             titlespan.set("id", "showablelink%s" % (myid, ))
-            titlespan.text = title
+            #titlespan.text = title
+            self.parser.parseChunk(parent, title)
             titlespan.tail = titleSuffix
             
                 

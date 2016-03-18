@@ -2,3 +2,6 @@
 setup.cfg
 setup.py
 mdx_showable/__init__.py
+mdx_showable/media/delayed-jquery.js
+mdx_showable/media/mdx_showable.css
+mdx_showable/media/mdx_showable.js
