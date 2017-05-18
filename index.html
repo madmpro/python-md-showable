@@ -12,7 +12,7 @@
 	<title>mdx_showable</title>
 
         <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
         <link href="./css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/highlight.css">
         <link href="./media/mdx_showable.css" rel="stylesheet">
@@ -126,12 +126,12 @@ This is the text that will show
 </div>
 </div>
 </div>
-<script>(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)</script>
+<script>(function(w,d,u){if(!w.$){w._delayed=true;console.info("Delaying JQuery calls");w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}}})(window,document)</script>
 <script>
     $(document).ready(function(){
-        $("#showablelink0").click(function(){
+        $("#showablelink0").click(function(e){
+            e.preventDefault();
             $("#showable0").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -178,9 +178,9 @@ If you put text around the \showable tag then it will be included with the title
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink1").click(function(){
+        $("#showablelink1").click(function(e){
+            e.preventDefault();
             $("#showable1").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -219,9 +219,9 @@ If you put text around the \showable tag then it will be included with the title
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink2").click(function(){
+        $("#showablelink2").click(function(e){
+            e.preventDefault();
             $("#showable2").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -282,9 +282,9 @@ Click here to see \showable{more} hints
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink4").click(function(){
+        $("#showablelink4").click(function(e){
+            e.preventDefault();
             $("#showable4").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -293,9 +293,9 @@ Click here to see \showable{more} hints
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink3").click(function(){
+        $("#showablelink3").click(function(e){
+            e.preventDefault();
             $("#showable3").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -321,14 +321,14 @@ Are you sure you want to know more?
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink5").click(function(){
+        $("#showablelink5").click(function(e){
+            e.preventDefault();
             $("#showable5").toggleClass("showable-hidden");
             if ($("#showable5").hasClass("showable-hidden")) {
                 $("#showablelink5").text("More");
             } else {
                 $("#showablelink5").text("Less");
             }
-            return false;
         });
     });
     </script>
@@ -353,9 +353,9 @@ This content will be initially open and can be closed by click on title
 </div>
 <script>
     $(document).ready(function(){
-        $("#showablelink6").click(function(){
+        $("#showablelink6").click(function(e){
+            e.preventDefault();
             $("#showable6").toggleClass("showable-hidden");
-            return false;
         });
     });
     </script>
@@ -444,6 +444,6 @@ will <em>open all</em> rather than <em>toggle all</em></p>
 </html>
 
 <!--
-MkDocs version : 0.13.3
-Build Date UTC : 2015-06-04 01:54:03.534827
+MkDocs version : 0.15.3
+Build Date UTC : 2017-05-18 06:29:49.010251
 -->
