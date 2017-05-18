@@ -60,7 +60,7 @@ from markdown.util import etree
 import re
 
 ## Set the version Number
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 
 class ShowableProcessor(BlockProcessor):
@@ -145,8 +145,8 @@ class ShowableProcessor(BlockProcessor):
                 titlespan = etree.SubElement(divt, 'span')
                 titlespan.set("class", "link-like")
             titlespan.set("id", "showablelink%s" % (myid, ))
-            #titlespan.text = title
-            self.parser.parseChunk(parent, title)
+            titlespan.text = title
+            #self.parser.parseChunk(parent, title)
             titlespan.tail = titleSuffix
             
                 
@@ -154,7 +154,7 @@ class ShowableProcessor(BlockProcessor):
             # @see http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
             if self._first:
                 scriptjq = etree.SubElement(parent, 'script')
-                scriptjq.text = '''(function(w,d,u){w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}})(window,document)'''
+                scriptjq.text = '''(function(w,d,u){if(!w.$){w._delayed=true;console.info("Delaying JQuery calls");w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}}})(window,document)'''
                 self._first = False
             
             # create showable body
