@@ -35,7 +35,7 @@ setup(
   name = 'mdx_showable',
   packages = ['mdx_showable'],
   package_data={'mdx_showable': ['media/*']},
-  version = '0.1.2',
+  version = '0.1.4',
   description = 'Python Markdown plugin to show and hide sections by user click',
   author = 'Andrew Robinson',
   author_email = 'andrewjrobinson+pypi@gmail.com',
