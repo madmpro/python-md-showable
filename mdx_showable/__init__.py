@@ -154,7 +154,7 @@ class ShowableProcessor(BlockProcessor):
             # @see http://writing.colin-gourlay.com/safely-using-ready-before-including-jquery/
             if self._first:
                 scriptjq = etree.SubElement(parent, 'script')
-                scriptjq.text = '''//<![CDATA[<!--\n(function(w,d,u){if(!w.$){w._delayed=true;console.info("Delaying JQuery calls");w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}}})(window,document)\n//-->]]>'''
+                scriptjq.text = '''(function(w,d,u){if(!w.$){w._delayed=true;console.info("Delaying JQuery calls");w.readyQ=[];w.bindReadyQ=[];function p(x,y){if(x=="ready"){w.bindReadyQ.push(y);}else{w.readyQ.push(x);}};var a={ready:p,bind:p};w.$=w.jQuery=function(f){if(f===d||f===u){return a}else{p(f)}}}})(window,document)'''
                 self._first = False
             
             # create showable body
